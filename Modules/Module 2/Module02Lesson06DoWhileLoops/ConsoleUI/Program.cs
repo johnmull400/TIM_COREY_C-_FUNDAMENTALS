@@ -10,6 +10,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            // This project is now on github with the rest of the course.
+
             Console.Write("Please enter your name: ");
             string name = Console.ReadLine().ToLower();
             string choice = "";
