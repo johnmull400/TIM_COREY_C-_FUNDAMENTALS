@@ -1,0 +1,35 @@
+
+write ("Please enter your name");
+string name = read name.toLower();
+string choice = ""
+
+while choice <> "exit"
+{
+        write ("Please enter your name");
+        name = read name.toLower();
+        if(name == "Tim")
+       {
+             	write("Hello professor Tim");
+        }
+        else
+        {
+          	write($"Hi, {name}");   	
+        }
+        
+        
+
+
+        do
+        {
+        	write("Type \"exit\" to end the program");
+        	read bool isValidChoice = string.TryParse(string choice out string choice);
+        
+       	 if(isValidChoice != true )
+       	{
+         		write("That was not a valid entry")   
+       	}
+         }while (isValidChoice != true)	
+
+}
+
+readkey();
