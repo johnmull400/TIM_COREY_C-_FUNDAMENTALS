@@ -1,0 +1,43 @@
+Main
+{
+	Console.WriteLine("Do you want to register a guest? - Y,N");
+	sring moreGuests = Console.ReadLine.ToLower();
+	
+                  while moreGuests == 'y'
+	{
+
+                                    AskForGuestDetails();  //Get the name and how many in party
+	
+		AddGuestToList();	//This will hold the directory for the guest list called from AskForGuestDetails()
+
+	                  
+                  	Console.WriteLine("Do you want to register another guest? - Y,N");
+		moreGuests = Console.ReadLine.ToLower();
+	{ 
+
+                   if numberOfGuests > 0
+                   {
+                   	PrintGuestList();
+                   }
+                   Console.ReadLine();
+
+}
+
+Methods ========================================================================
+AskForGuestDetails()
+{
+	Console.WriteLine("Please enter your name");
+                  string guestName = Console.ReadLine() ;
+	
+                  Console.WriteLine("How many are in your party?");
+                  int numberInParty = Console.ReadLine() ;
+
+                  if guestName.Length > && numberInParty > 0
+                  {
+                           	AddGuestToList(guestName, numberInParty)
+                  }
+	else
+	{
+		return;
+	} 
+}  
