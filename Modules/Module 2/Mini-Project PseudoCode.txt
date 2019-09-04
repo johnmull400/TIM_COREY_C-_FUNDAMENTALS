@@ -1,3 +1,5 @@
+Module02MiniProjectGuestListTracker
+
 Main
 {
 	Console.WriteLine("Do you want to register a guest? - Y,N");

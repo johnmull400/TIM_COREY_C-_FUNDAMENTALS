@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ConsoleUI
 {
     class Program
     {
         static void Main(string[] args)
         {
-           
+            
             Console.WriteLine("Do you wnat to register a guest?");
             string addMoreGuests = Console.ReadLine().ToLower();
 
@@ -25,10 +26,13 @@ namespace ConsoleUI
             Console.ReadLine();
         }
 
+        static Dictionary<string, int> GuestList = new Dictionary<string, int>();
+        static int totalGuests = 0;
+
         public static void ManageGuestList(string guestName, int numberInParty)
         {
 
-            Dictionary<string, int> GuestList = new Dictionary<string, int>();
+            //Dictionary<string, int> GuestList = new Dictionary<string, int>();
 
             GuestList.Add(guestName, numberInParty);
             
@@ -39,20 +43,26 @@ namespace ConsoleUI
             int numberInParty = 0;
 
             Console.WriteLine("Please enter the guests name");
-            Console.ReadLine();
+            guestName=Console.ReadLine();
+
+            Console.WriteLine($"Enter the number of guests in {guestName}'s party");
+            bool isInt = Int32.TryParse(Console.ReadLine(), out numberInParty);
 
             ManageGuestList(guestName,numberInParty);
-            
+            totalGuests += numberInParty;
 
         }
         public static void PrintGuestList()
         {
-            foreach (KeyValuePair<string,int> item in ManageGuestList.GuestList)
+            // Note the word Party in the loop. This will work as long as you use the same word in 
+            // Console.Writeline
+            foreach (KeyValuePair<string, int> Party in GuestList)
             {
-                Console.WriteLine(ManageGuestList.guest)
-            }        
+                
+                Console.WriteLine("Name: {0}, Number in Party {1}",Party.Key,Party.Value);
+            }
 
-        
+            Console.WriteLine($"The total number of guests is {totalGuests.ToString()}");
 
         }
     }
