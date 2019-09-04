@@ -24,7 +24,7 @@ Main
 }
 
 Methods ========================================================================
-AskForGuestDetails()
+public static void AskForGuestDetails()
 {
 	Console.WriteLine("Please enter your name");
                   string guestName = Console.ReadLine() ;
@@ -41,3 +41,28 @@ AskForGuestDetails()
 		return;
 	} 
 }  
+
+public static void AddGuestsToList(string guestName, numInParty )
+{
+
+                 	int TotalGuests;
+                 	Directory GuestList{guestName,numberInParty}
+
+	GuestList.Add(guestName,numInParty)
+
+	totalGuests +=numInParty ;	
+
+}
+public static void PrintGuestList();
+{
+	
+          	foreach AddGuestsToList.GuestList
+	{
+		Console.WriteLine($"The guest list for the party is {AddGuestsToList.GuestList}")
+
+	}
+	
+	Console.WriteLine($"The total number of guests is:{AddGuestToList.totalGuests})
+	
+
+}
