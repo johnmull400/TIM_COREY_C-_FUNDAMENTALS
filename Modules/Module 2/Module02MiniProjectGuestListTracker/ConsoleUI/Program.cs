@@ -17,10 +17,19 @@ namespace ConsoleUI
 
             while (addMoreGuests == "y")
             {
-                AskForGuestDetails();
+                try
+                {
+                    AskForGuestDetails();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error ocurred in the call to AskForGuestDetails");
+                    Console.WriteLine(ex.Message);
+                }
                 
                 Console.WriteLine("Do you wnat to register another guest?");
                 addMoreGuests = Console.ReadLine().ToLower();
+                
             }
             PrintGuestList();
             Console.ReadLine();
@@ -29,6 +38,7 @@ namespace ConsoleUI
         static Dictionary<string, int> GuestList = new Dictionary<string, int>();
         static int totalGuests = 0;
 
+        //================================================ METHODS =======================================================
         public static void ManageGuestList(string guestName, int numberInParty)
         {
 
@@ -37,21 +47,30 @@ namespace ConsoleUI
             GuestList.Add(guestName, numberInParty);
             
         }
+        //================================================================================================================
         public static void AskForGuestDetails()
         {
             string guestName = "";
             int numberInParty = 0;
 
             Console.WriteLine("Please enter the guests name");
-            guestName=Console.ReadLine();
+            guestName = Console.ReadLine();
 
             Console.WriteLine($"Enter the number of guests in {guestName}'s party");
-            bool isInt = Int32.TryParse(Console.ReadLine(), out numberInParty);
-
-            ManageGuestList(guestName,numberInParty);
-            totalGuests += numberInParty;
-
+            bool isInt = int.TryParse(Console.ReadLine(), out numberInParty);
+            try
+            {
+                ManageGuestList(guestName, numberInParty);
+                totalGuests += numberInParty;
+            }
+            catch (Exception ex)
+            {
+               throw new Exception("An error ocurred handling the guest list", ex);
+            }
+            
+            
         }
+        //================================================================================================================
         public static void PrintGuestList()
         {
             // Note the word Party in the loop. This will work as long as you use the same word in 
@@ -65,5 +84,6 @@ namespace ConsoleUI
             Console.WriteLine($"The total number of guests is {totalGuests.ToString()}");
 
         }
+        //================================================================================================================
     }
 }
